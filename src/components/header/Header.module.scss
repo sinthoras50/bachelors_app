@@ -1,0 +1,43 @@
+
+
+.header {
+  background: var(--secondary);
+  color: var(--primary);
+
+  h1 {
+    padding: 2rem 0 0.5rem 0;
+    margin: 0;
+    text-align: center;
+    font-weight: 700;
+    font-size: 3rem;
+  }
+
+  nav {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 0.3rem;
+
+    a {
+      border-radius: 3px;
+    }
+
+    h5 {
+      margin: .3rem 0.7rem;
+      color: var(--primary);
+      font-size: 1.5rem;
+      font-weight: 300;
+      display: inline-block;
+    }
+
+    .selected {
+      background: var(--primary);
+      transition: background 250ms linear;
+      
+      h5 {
+        color: var(--secondary);
+        transition: color 250ms linear;
+      }
+    }
+  }
+
+}

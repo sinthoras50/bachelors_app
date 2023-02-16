@@ -1,23 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import styles from './App.module.scss';
+import Footer from './components/footer/Footer';
+import Header from './components/header/Header';
+import Index from './components/index/Index';
+import Diary from './components/diary/Diary';
+import Annotation from './components/annotation/Annotation';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 
 function App() {
+  const location = useLocation();
+  console.log(location);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={styles['app']}>
+      <Header />
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
+          <Route 
+            path='/'
+            element={<Index />}
+          />
+          <Route 
+            path='/annotation'
+            element={<Annotation />}
+          />
+
+          <Route 
+            path='/diary'
+            element={<Diary />}
+          />
+        </Routes>
+      </AnimatePresence>
+
+      <Footer />
     </div>
   );
 }

@@ -1,0 +1,48 @@
+
+
+.intro {
+
+  margin-top: 3rem;
+  
+  .grid {
+    display: grid;
+    width: 55%;
+    margin: 0 auto;
+    gap: 0.7rem;
+    grid-template-areas:
+      "title titleField"
+      "author authorField"
+      "adviser adviserField"
+      "contact contactField"
+  }
+
+  .title, .author, .adviser, .contact {
+    font-weight: 700;
+  }
+
+  .title {
+    grid-area: title;
+  }
+  .title-field {
+    grid-area: titleField;
+  }
+  .author {
+    grid-area: author;
+  }
+  .author-field {
+    grid-area: authorField;
+  }
+  .adviser {
+    grid-area: adviser;
+  }
+  .adviser-field {
+    grid-area: adviserField;
+  }
+  .contact {
+    grid-area: contact;
+  } 
+  .contact-field {
+    grid-area: contactField;
+  }
+
+}
