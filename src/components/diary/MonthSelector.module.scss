@@ -1,0 +1,37 @@
+
+
+.month-selector {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+
+  .controls {
+    position: relative;
+    width: 150px;
+    display: flex;
+    justify-content: space-evenly;
+
+    .arrows {
+      cursor: pointer;
+    }
+    
+    span {
+      z-index: 1;
+      color: var(--primary);
+      text-align: center;
+    }
+
+    span:nth-child(3) {
+      width: 30px;
+    }
+
+    .background {
+      position: absolute;
+      width: 100%;
+      box-sizing: border-box;
+      border-top: 30px solid var(--secondary);
+      border-left: 30px solid transparent;
+      border-right: 30px solid transparent;
+    }
+  }
+}
