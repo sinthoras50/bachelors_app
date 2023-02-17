@@ -3,8 +3,11 @@ import { motion } from 'framer-motion';
 import { useLocation } from 'react-router-dom';
 
 export default function Annotation() {
-  const { state } = useLocation();
-  console.log(state);
+  let { state } = useLocation();
+
+  if (!state) {
+    state = { prevPath: '/' }
+  }
 
   return (
       <motion.main 

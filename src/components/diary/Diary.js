@@ -36,8 +36,6 @@ export default function Diary() {
       </div>
     ));
 
-  console.log(entries);
-
   return (
     <>
       <motion.div

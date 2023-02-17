@@ -11,8 +11,6 @@ export default function Diary() {
   const [view, setView] = useState('month');
   const [month, setMonth] = useState(new Date(Date.now()).getMonth())
 
-  console.log(month)
-
   function tileDisabled({ date, view }) {
     const dateString = date.toLocaleDateString('en-GB');
     return view === 'month' ? !data.some(entry => entry.date === dateString) : false;
@@ -26,7 +24,6 @@ export default function Diary() {
     setView(view);
 
     if (view === 'month') {
-      console.log(activeStartDate);
       setMonth(activeStartDate.getMonth());
     }
   }
