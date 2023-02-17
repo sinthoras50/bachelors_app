@@ -42,6 +42,7 @@ export default function Diary() {
   if (entries.length === 0) {
     entries.push(
       <motion.p
+        key='0'
         initial={{ opacity: '0%' }}
         animate={{ opacity: '100%' }}
         exit={{ opacity: '0%' }}
