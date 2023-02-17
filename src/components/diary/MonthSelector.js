@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import styles from './MonthSelector.module.scss';
 
 export default function MonthSelector({ month, setMonth, months }) {
