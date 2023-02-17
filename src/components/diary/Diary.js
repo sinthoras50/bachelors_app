@@ -27,21 +27,36 @@ export default function Diary() {
       return parseInt(dateArr[1]) - 1 === month;
     })
     .map((entry, i) => (
-      <div
+      <motion.div
         key={i}
         className={styles['entry']}
+        initial={{ opacity: '0%' }}
+        animate={{ opacity: '100%' }}
+        exit={{ opacity: '0%' }}
       >
         <h4>{entry.date}</h4>
         <p>{entry.message}</p>
-      </div>
+      </motion.div>
     ));
+
+  if (entries.length === 0) {
+    entries.push(
+      <motion.p
+        initial={{ opacity: '0%' }}
+        animate={{ opacity: '100%' }}
+        exit={{ opacity: '0%' }}
+      >
+        Zatiaľ žiaden záznam.
+      </motion.p>
+    );
+  }
 
   return (
     <>
       <motion.div
-        initial={{ opacity: '0%'}}
+        initial={{ opacity: '0%' }}
         animate={{ opacity: '100%' }}
-        exit={{ opacity: '0%', transition: {duration: 0.2 } }}
+        exit={{ opacity: '0%', transition: { duration: 0.2 } }}
       >
         <MonthSelector
           month={month}
