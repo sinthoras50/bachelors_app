@@ -1,5 +1,5 @@
 import styles from './Index.module.scss';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 export default function Index() {
   return (
