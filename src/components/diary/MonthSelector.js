@@ -2,6 +2,8 @@ import styles from './MonthSelector.module.scss';
 import { motion, useCycle } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';
 
+const toolbar_h = 30;
+
 const variants = {
   none: {
     opacity: 0,
@@ -12,8 +14,8 @@ const variants = {
   },
   open: (dimens) => ({
     clipPath: `polygon(${dimens.x}px 0px, ${dimens.x + dimens.width}px 0px, ${
-      dimens.x + dimens.width - 30
-    }px ${dimens.height}px, ${dimens.x + 30}px ${dimens.height}px)`,
+      dimens.x + dimens.width - toolbar_h
+    }px ${dimens.height}px, ${dimens.x + toolbar_h}px ${dimens.height}px)`,
     opacity: 1,
     transition: {
       type: 'spring',
@@ -23,8 +25,8 @@ const variants = {
 
   closed: (dimens) => ({
     clipPath: `polygon(${dimens.x}px 0px, ${dimens.x + dimens.width}px 0px, ${
-      dimens.x + dimens.width - 30
-    }px ${dimens.height}px, ${dimens.x + 30}px ${dimens.height}px)`,
+      dimens.x + dimens.width - toolbar_h
+    }px ${dimens.height}px, ${dimens.x + toolbar_h}px ${dimens.height}px)`,
     opacity: 1,
     transition: {
       type: 'spring',
@@ -46,7 +48,7 @@ export default function MonthSelector({ month, setMonth, months }) {
 
   console.log(
     `polygon(${dimens.x}px 0px, ${dimens.x + dimens.width}px 0px, ${
-      dimens.x + dimens.width - 30
+      dimens.x + dimens.width - toolbar_h
     }px ${dimens.height}px, ${dimens.x + 30}px ${dimens.height}px)`
   );
 

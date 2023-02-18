@@ -21,13 +21,10 @@
       z-index: 1;
       color: var(--primary);
       text-align: center;
+      padding: 4px 0 0 0;
+      margin: -2px 0 0 0;
     }
-
-    .months {
-      padding: 0;
-      margin: 0;
-    }
-
+    
     .months > li {
       display: inline-block;
       width: 30px;
