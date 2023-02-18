@@ -3,26 +3,36 @@
 .month-selector {
   margin: 0 auto;
   display: flex;
+  height: 30px;
   justify-content: center;
+  background: var(--secondary);
 
   .controls {
     position: relative;
-    width: 150px;
+    // width: 150px;
+    padding: 0 25px;
     display: flex;
     justify-content: space-evenly;
-
     .arrows {
       cursor: pointer;
     }
-    
-    span {
+
+    span, .months {
       z-index: 1;
       color: var(--primary);
       text-align: center;
     }
 
-    span:nth-child(3) {
+    .months {
+      padding: 0;
+      margin: 0;
+    }
+
+    .months > li {
+      display: inline-block;
       width: 30px;
+      margin: 0 5px;
+      cursor: pointer;
     }
 
     .background {

@@ -47,7 +47,7 @@ export default function Diary() {
         animate={{ opacity: '100%' }}
         exit={{ opacity: '0%' }}
       >
-        Zatiaľ žiaden záznam.
+        Žiaden záznam.
       </motion.p>
     );
   }
@@ -56,7 +56,7 @@ export default function Diary() {
     <>
       <motion.div
         initial={{ opacity: '0%' }}
-        animate={{ opacity: '100%' }}
+        animate={{ opacity: '100%', transition: { delay: 0.3 } }}
         exit={{ opacity: '0%', transition: { duration: 0.2 } }}
       >
         <MonthSelector

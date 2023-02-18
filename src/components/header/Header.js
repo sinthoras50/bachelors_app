@@ -1,5 +1,6 @@
 import styles from './Header.module.scss';
 import { NavLink, useLocation } from 'react-router-dom';
+import { AnimatePresence, motion } from 'framer-motion';
 
 export default function Header() {
 
@@ -14,21 +15,21 @@ export default function Header() {
           state={{ prevPath: pathname }}
           className={({ isActive }) => (isActive ? styles['selected'] : '')}
         >
-          <h5>Index</h5>
+          <motion.h5>Index</motion.h5>
         </NavLink>
         <NavLink
           to='/annotation'
           state={{ prevPath: pathname }}
           className={({ isActive }) => (isActive ? styles['selected'] : '')}
         >
-          <h5>Anotácia</h5>
+          <motion.h5>Anotácia</motion.h5>
         </NavLink>
         <NavLink
           to='/diary'
           state={{ prevPath: pathname }}
           className={({ isActive }) => (isActive ? styles['selected'] : '')}
         >
-          <h5>Denník</h5>
+          <motion.h5>Denník</motion.h5>
         </NavLink>
       </nav>
     </header>
