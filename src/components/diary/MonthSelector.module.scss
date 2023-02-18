@@ -34,7 +34,7 @@
       display: inline-block;
       width: 30px;
       margin: 0 5px;
-      cursor: pointer;
+      user-select: none; /* Standard */
     }
 
     .background {

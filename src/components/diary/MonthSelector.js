@@ -3,6 +3,7 @@ import { motion, useCycle } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';
 
 const toolbar_h = 30;
+const min_width = 560;
 
 const variants = {
   none: {
@@ -38,19 +39,13 @@ const variants = {
 export default function MonthSelector({ month, setMonth, months }) {
   const [isOpen, toggleOpen] = useCycle(false, true);
   const containerRef = useRef(null);
-  const [{ x, y, width, height }, setBoundingRect] = useState({
+  const [boundingRect, setBoundingRect] = useState({
     x: 1000,
     y: 1000,
     width: 1000,
     height: 1000,
   });
-  const dimens = { x, y, width, height };
-
-  console.log(
-    `polygon(${dimens.x}px 0px, ${dimens.x + dimens.width}px 0px, ${
-      dimens.x + dimens.width - toolbar_h
-    }px ${dimens.height}px, ${dimens.x + 30}px ${dimens.height}px)`
-  );
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   function handleClickLeft() {
     let idx = month;
@@ -70,9 +65,18 @@ export default function MonthSelector({ month, setMonth, months }) {
     if (isOpen) {
       setMonth(idx);
     }
-
-    toggleOpen();
+    if (window.innerWidth > min_width) {
+      toggleOpen();
+    }
   }
+
+  useEffect(() => {
+    // console.log(windowWidth)
+    if (windowWidth <= min_width) {
+      console.log('should close ')
+      toggleOpen(0);
+    }
+  }, [windowWidth])
 
   useEffect(() => {
     setBoundingRect(containerRef.current.getBoundingClientRect());
@@ -80,9 +84,11 @@ export default function MonthSelector({ month, setMonth, months }) {
 
   useEffect(() => {
     setBoundingRect(containerRef.current.getBoundingClientRect());
+    setWindowWidth(window.innerWidth);
 
     const listener = () => {
       setBoundingRect(containerRef.current.getBoundingClientRect());
+      setWindowWidth(window.innerWidth);
     };
 
     window.addEventListener('resize', listener);
@@ -93,7 +99,7 @@ export default function MonthSelector({ month, setMonth, months }) {
   return (
     <motion.div
       className={styles['month-selector']}
-      custom={dimens}
+      custom={boundingRect}
       initial={'none'}
       exit={{ opacity: 0 }}
       animate={isOpen ? 'open' : 'closed'}
@@ -119,6 +125,7 @@ export default function MonthSelector({ month, setMonth, months }) {
                 className={month === i ? styles['selected'] : ''}
                 onClick={e => handleClickCenter(e, i)}
                 whileHover={{ scale: 1.2, transition: { duration: 0.3 } }}
+                style={ { cursor: windowWidth > min_width ? 'pointer' : 'auto' }}
               >
                 {m.slice(0, 3)}
               </motion.li>
@@ -126,7 +133,8 @@ export default function MonthSelector({ month, setMonth, months }) {
           ) : (
             <motion.li
               onClick={e => handleClickCenter(e, month)}
-              whileHover={{ scale: 1.2, transition: { duration: 0.3 } }}
+              whileHover={windowWidth > min_width && { scale: 1.2, transition: { duration: 0.3 } }}
+              style={ { cursor: windowWidth > min_width ? 'pointer' : 'auto' }}
             >
               {months[month].slice(0, 3)}
             </motion.li>
