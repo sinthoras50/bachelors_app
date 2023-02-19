@@ -53,7 +53,7 @@ export default function Diary() {
   }
 
   return (
-    <>
+    <div className={styles['diary']}>
       <motion.div
         initial={{ opacity: '0%' }}
         animate={{ opacity: '100%', transition: { delay: 0.3 } }}
@@ -75,6 +75,6 @@ export default function Diary() {
           {entries}
         </div>
       </motion.main>
-    </>
+    </div>
   );
 }

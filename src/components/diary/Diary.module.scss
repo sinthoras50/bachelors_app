@@ -1,18 +1,21 @@
+.diary {
+  background: var(--primary);
 
-
-.text-content {
-  margin: 3rem auto;
-  width: 55%;
-}
-
-.entry {
-  margin-top: 1.5rem;
-  h4 {
-    margin: 0.3rem 0;
-    font-weight: 700;
-    font-size: 1.3rem;
+  .text-content {
+    margin: 3rem auto;
+    width: 55%;
+    padding-bottom: 4rem;
   }
-  p {
-    margin: 0 0 0 0.5rem;
+
+  .entry {
+    margin-top: 1.5rem;
+    h4 {
+      margin: 0.3rem 0;
+      font-weight: 700;
+      font-size: 1.3rem;
+    }
+    p {
+      margin: 0 0 0 0.5rem;
+    }
   }
 }

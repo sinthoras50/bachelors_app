@@ -4,6 +4,7 @@ import { useRef, useEffect, useState } from 'react';
 
 const toolbar_h = 30;
 const min_width = 560;
+const min_selector_width = 118;
 
 const variants = {
   none: {
@@ -42,10 +43,12 @@ export default function MonthSelector({ month, setMonth, months }) {
   const [boundingRect, setBoundingRect] = useState({
     x: 1000,
     y: 1000,
-    width: 1000,
-    height: 1000,
+    width: 118,
+    height: 30,
   });
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  // console.log(boundingRect);
 
   function handleClickLeft() {
     let idx = month;
@@ -70,6 +73,25 @@ export default function MonthSelector({ month, setMonth, months }) {
     }
   }
 
+  // make sure if page is accessed from a direct link it renders with correct width
+  function prepareBoundingRect(oldRect) {
+    let newRect = {
+      x: oldRect.x,
+      y: oldRect.y,
+      width: oldRect.width,
+      height: oldRect.height
+    };
+
+    if (oldRect.width < min_selector_width && isOpen === false) {
+      const difference = min_selector_width - oldRect.width;
+      const x = oldRect.x - difference / 2;
+      newRect.x = x;
+      newRect.width = min_selector_width;
+    }
+
+    return newRect;
+  }
+
   useEffect(() => {
     // console.log(windowWidth)
     if (windowWidth <= min_width) {
@@ -79,15 +101,15 @@ export default function MonthSelector({ month, setMonth, months }) {
   }, [windowWidth])
 
   useEffect(() => {
-    setBoundingRect(containerRef.current.getBoundingClientRect());
+    setBoundingRect(prepareBoundingRect(containerRef.current.getBoundingClientRect()));
   }, [isOpen]);
 
   useEffect(() => {
-    setBoundingRect(containerRef.current.getBoundingClientRect());
+    setBoundingRect(prepareBoundingRect(containerRef.current.getBoundingClientRect()));
     setWindowWidth(window.innerWidth);
 
     const listener = () => {
-      setBoundingRect(containerRef.current.getBoundingClientRect());
+      setBoundingRect(prepareBoundingRect(containerRef.current.getBoundingClientRect()));
       setWindowWidth(window.innerWidth);
     };
 
