@@ -1,6 +1,6 @@
 import styles from './Header.module.scss';
 import { NavLink, useLocation } from 'react-router-dom';
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 export default function Header() {
 

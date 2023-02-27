@@ -1,4 +1,10 @@
 const data = [
+
+  {
+    date: '12/02/2023',
+    message: 'Písanie práce, východisková kapitola - prvých 10 strán.'
+  },
+
   {
     date: '16/02/2023',
     message: 'Vytvoril som web stránku pre BP.'
@@ -11,7 +17,7 @@ const data = [
 
   {
     date: '27/02/2023',
-    message: 'Implementoval som Houghovú transformáciu - detekcia a odstránenie vertikálnych priamok v obraze.'
+    message: 'Implementoval som Houghovú probabilistickú transformáciu - detekcia a odstránenie vertikálnych priamok v obraze.'
   },
 ]
 
