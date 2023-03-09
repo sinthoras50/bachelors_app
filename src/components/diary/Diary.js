@@ -35,7 +35,7 @@ export default function Diary() {
         exit={{ opacity: '0%' }}
       >
         <h4>{entry.date}</h4>
-        <p>{entry.message}</p>
+        <p dangerouslySetInnerHTML={{ __html: entry.message }}></p>
       </motion.div>
     ));
 

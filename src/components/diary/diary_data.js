@@ -19,6 +19,17 @@ const data = [
     date: '27/02/2023',
     message: 'Implementoval som Houghovú probabilistickú transformáciu - detekcia a odstránenie vertikálnych priamok v obraze.'
   },
+
+  {
+    date: '06/03/2023',
+    message: `Porovnával som KerasOCR, EasyOCR a Tesseract OCR enginy počítaním Levenshteinovej vzdialenosti medzi nameraným výstupom a reálnym vstupom. 
+     Vyhodnocoval som Open source OCR voči Closed source OCR (Amazon Textract, Google Document AI, Nanonets)`
+  },
+
+  {
+    date: '08/03/2023',
+    message: 'Implementoval som auto-correct pre výstupné dáta - konkrétne adresy - na základe datasetov ulíc a miest SR z <a href="https://data.gov.sk/">https://data.gov.sk/</a>.'
+  }
 ]
 
 export default data;
