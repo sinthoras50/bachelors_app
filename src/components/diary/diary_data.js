@@ -29,6 +29,13 @@ const data = [
   {
     date: '08/03/2023',
     message: 'Implementoval som auto-correct pre výstupné dáta - konkrétne adresy - na základe datasetov ulíc a miest SR z <a href="https://data.gov.sk/">https://data.gov.sk/</a>.'
+  },
+
+  {
+    date: '10/03/2023',
+    message: `Implementoval som algoritmus na generovanie QR kódu na bankový prevod podľa špecifikácie Slovenskej Bankovej Asociácie z 
+    <a href="https://www.sbaonline.sk/wp-content/uploads/2020/03/pay-by-square-specifications-1_1_0.pdf">https://www.sbaonline.sk/wp-content/uploads/2020/03/pay-by-square-specifications-1_1_0.pdf</a> 
+    a schémy <a href="https://bsqr.co/schema/">https://bsqr.co/schema/</a>`
   }
 ]
 
