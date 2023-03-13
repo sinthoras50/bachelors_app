@@ -36,6 +36,11 @@ const data = [
     message: `Implementoval som algoritmus na generovanie QR kódu na bankový prevod podľa špecifikácie Slovenskej Bankovej Asociácie z 
     <a href="https://www.sbaonline.sk/wp-content/uploads/2020/03/pay-by-square-specifications-1_1_0.pdf">https://www.sbaonline.sk/wp-content/uploads/2020/03/pay-by-square-specifications-1_1_0.pdf</a> 
     a schémy <a href="https://bsqr.co/schema/">https://bsqr.co/schema/</a>`
+  },
+
+  {
+    date: '13/03/2023',
+    message: 'Vypracoval som druhú prezentáciu: <a href="https://docs.google.com/presentation/d/1_JwAiB3HVlDKi_d3LhtDEMr8mJ3ViR_lcYoFXCO48gs/edit?usp=sharing">Prezentácia 2</a>'
   }
 ]
 
